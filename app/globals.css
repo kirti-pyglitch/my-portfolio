@@ -1,28 +1,40 @@
 @import "tailwindcss";
 @import "../styles/animations.css";
 
-@theme {
-  --color-maroon: #7C2D12;
-  --color-maroon-dark: #5C1D0A;
-  --color-maroon-light: #993B1C;
-  --color-gold: #F59E0B;
-  --color-gold-dark: #D97706;
-  --color-gold-light: #FCD34D;
+:root {
+  /* Primary Maroon */
+  --color-maroon: #7A0C22;
+  /* Dark Burgundy */
+  --color-maroon-dark: #360B10;
+  /* Muted Gold (terracotta-rose accent, replaces orange gold) */
+  --color-maroon-light: #BA775D;
+  /* Ivory */
+  --color-ivory: #F5F0EA;
+  /* Warm Beige */
+  --color-beige: #C4B8AC;
+  /* Coffee Brown */
+  --color-brown: #5D4C49;
+  /* Navy Accent */
+  --color-navy: #041948;
+  /* Background stays deep dark */
   --color-bg-dark: #0F172A;
-  
+
   --font-sans: var(--font-inter), sans-serif;
   --font-serif: var(--font-outfit), sans-serif;
-  
+
   --animate-float-slow: float-slow 25s infinite ease-in-out;
   --animate-float-medium: float-medium 18s infinite ease-in-out;
   --animate-float-fast: float-fast 10s infinite ease-in-out;
   --animate-pulse-glow: pulse-glow 12s infinite ease-in-out;
   --animate-bg-drift: drift 15s infinite ease-in-out;
-}
 
-:root {
-  --background: #0F172A;
-  --foreground: #F8FAFC;
+  --background: #F5F0EA;       /* Ivory background */
+  --foreground: #360B10;       /* Dark Burgundy text */
+  --accent-primary: #7A0C22;   /* Primary Maroon */
+  --accent-secondary: #BA775D; /* Muted Gold / Terracotta */
+  --text-muted: #C4B8AC;       /* Warm Beige */
+  --text-body: #5D4C49;        /* Coffee Brown */
+  --accent-navy: #041948;      /* Navy Accent */
 }
 
 html {
@@ -41,30 +53,30 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0F172A;
+  background: #F5F0EA;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7C2D12;
+  background: #7A0C22;
   border-radius: 5px;
-  border: 2px solid #0F172A;
+  border: 2px solid #F5F0EA;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F59E0B;
+  background: #BA775D;
 }
 
 /* Selection colors */
 ::selection {
-  background: #7C2D12;
-  color: #FFFFFF;
+  background: #7A0C22;
+  color: #F5F0EA;
 }
 
 /* Custom glows */
 .glow-spot-maroon {
-  background: radial-gradient(circle, rgba(124, 45, 18, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+  background: radial-gradient(circle, rgba(122, 12, 34, 0.12) 0%, rgba(245, 240, 234, 0) 70%);
 }
 
-.glow-spot-gold {
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+.glow-spot-accent {
+  background: radial-gradient(circle, rgba(186, 119, 93, 0.08) 0%, rgba(245, 240, 234, 0) 70%);
 }
