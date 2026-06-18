@@ -1,42 +1,75 @@
 @import "tailwindcss";
 @import "../styles/animations.css";
 
-:root {
-  /* Primary Maroon */
-  --color-maroon: #7A0C22;
-  /* Dark Burgundy */
-  --color-maroon-dark: #360B10;
-  /* Muted Gold (terracotta-rose accent, replaces orange gold) */
-  --color-maroon-light: #BA775D;
-  /* Ivory */
-  --color-ivory: #F5F0EA;
-  /* Warm Beige */
-  --color-beige: #C4B8AC;
-  /* Coffee Brown */
-  --color-brown: #5D4C49;
-  /* Navy Accent */
-  --color-navy: #041948;
-  /* Background stays deep dark */
-  --color-bg-dark: #0F172A;
+@theme {
+  /* ── Core Background ── */
+  --color-bg-dark:         #0A0A0A;     /* Pure black canvas */
 
-  --font-sans: var(--font-inter), sans-serif;
+  /* ── Maroon / Crimson family (left glow, primary brand) ── */
+  --color-maroon:          #8B0038;     /* Deep crimson maroon — ambient left glow */
+  --color-maroon-dark:     #4A001E;     /* Almost-black maroon */
+  --color-maroon-light:    #B5004E;     /* Vivid crimson — hover states */
+
+  /* ── Hot Pink / Magenta (accent — sparkles, bullets, borders) ── */
+  --color-pink:            #FF1B6B;     /* Hot pink accent — stars, diamond icons */
+  --color-pink-soft:       #FF6B9D;     /* Softer pink for gradients */
+
+  /* ── Teal (top-right ambient glow) ── */
+  --color-teal:            #00B4B4;     /* Teal — top-right corner glow */
+  --color-teal-dark:       #007A7A;     /* Deeper teal */
+
+  /* ── Navy (bottom-right ambient glow) ── */
+  --color-navy:            #041948;     /* Deep navy — bottom-right glow */
+  --color-navy-light:      #0A2A72;     /* Brighter navy */
+
+  /* ── Champagne Gold (heading typography) ── */
+  --color-gold:            #C9A55A;     /* Warm champagne gold — display headings */
+  --color-gold-light:      #E5C87A;     /* Lighter gold — hover, highlights */
+  --color-gold-dark:       #A07838;     /* Darker gold — subheadings */
+
+  /* ── Copper / Terracotta (dividers, underlines) ── */
+  --color-copper:          #C87755;     /* Copper — horizontal divider lines */
+
+  /* ── Neutrals ── */
+  --color-white:           #FFFFFF;     /* Body text */
+  --color-white-soft:      #F0EEF8;     /* Warm white — secondary text */
+  --color-muted:           #9A8FA8;     /* Muted purple-gray — captions/labels */
+
+  /* ── Fonts ── */
+  --font-sans:  var(--font-inter), sans-serif;
   --font-serif: var(--font-outfit), sans-serif;
 
-  --animate-float-slow: float-slow 25s infinite ease-in-out;
+  /* ── Animations ── */
+  --animate-float-slow:   float-slow  25s infinite ease-in-out;
   --animate-float-medium: float-medium 18s infinite ease-in-out;
-  --animate-float-fast: float-fast 10s infinite ease-in-out;
-  --animate-pulse-glow: pulse-glow 12s infinite ease-in-out;
-  --animate-bg-drift: drift 15s infinite ease-in-out;
-
-  --background: #F5F0EA;       /* Ivory background */
-  --foreground: #360B10;       /* Dark Burgundy text */
-  --accent-primary: #7A0C22;   /* Primary Maroon */
-  --accent-secondary: #BA775D; /* Muted Gold / Terracotta */
-  --text-muted: #C4B8AC;       /* Warm Beige */
-  --text-body: #5D4C49;        /* Coffee Brown */
-  --accent-navy: #041948;      /* Navy Accent */
+  --animate-float-fast:   float-fast  10s infinite ease-in-out;
+  --animate-pulse-glow:   pulse-glow  12s infinite ease-in-out;
+  --animate-bg-drift:     drift       15s infinite ease-in-out;
 }
 
+/* ═══════════════════════════════════════════
+   ROOT DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --background:        #0A0A0A;   /* Pure black canvas */
+  --foreground:        #FFFFFF;   /* Primary body text */
+
+  --text-heading:      #C9A55A;   /* Warm champagne gold — all display headings */
+  --text-body:         #FFFFFF;   /* Clean white — paragraph text */
+  --text-muted:        #9A8FA8;   /* Muted purple-gray — labels, captions */
+
+  --accent-pink:       #FF1B6B;   /* Hot pink — sparkles, bullets, borders */
+  --accent-copper:     #C87755;   /* Copper — divider lines, underlines */
+  --accent-teal:       #00B4B4;   /* Teal — top-right glow, subtle highlights */
+  --accent-navy:       #041948;   /* Navy — bottom-right glow zone */
+
+  --border-card:       rgba(255, 27, 107, 0.35);   /* Pink-tinted card borders */
+  --border-input:      rgba(255, 255, 255, 0.20);  /* Subtle white input borders */
+}
+
+/* ═══════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════ */
 html {
   scroll-behavior: smooth;
 }
@@ -47,36 +80,128 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom Premium Scrollbar */
+/* ═══════════════════════════════════════════
+   SCROLLBAR — maroon track, pink hover
+═══════════════════════════════════════════ */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F0EA;
+  background: #0A0A0A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7A0C22;
+  background: #8B0038;
   border-radius: 5px;
-  border: 2px solid #F5F0EA;
+  border: 2px solid #0A0A0A;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #BA775D;
+  background: #FF1B6B;
 }
 
-/* Selection colors */
+/* ═══════════════════════════════════════════
+   TEXT SELECTION
+═══════════════════════════════════════════ */
 ::selection {
-  background: #7A0C22;
-  color: #F5F0EA;
+  background: #8B0038;
+  color: #FFFFFF;
 }
 
-/* Custom glows */
+/* ═══════════════════════════════════════════
+   AMBIENT GLOW SPOTS
+   — 3-directional system matching the PDF
+═══════════════════════════════════════════ */
+
+/* Left / bottom-left — deep crimson maroon (primary brand glow) */
 .glow-spot-maroon {
-  background: radial-gradient(circle, rgba(122, 12, 34, 0.12) 0%, rgba(245, 240, 234, 0) 70%);
+  background: radial-gradient(
+    ellipse at 0% 60%,
+    rgba(139, 0, 56, 0.40) 0%,
+    rgba(10, 10, 10, 0) 65%
+  );
 }
 
-.glow-spot-accent {
-  background: radial-gradient(circle, rgba(186, 119, 93, 0.08) 0%, rgba(245, 240, 234, 0) 70%);
+/* Top-right — teal / cyan */
+.glow-spot-teal {
+  background: radial-gradient(
+    ellipse at 100% 0%,
+    rgba(0, 180, 180, 0.22) 0%,
+    rgba(10, 10, 10, 0) 60%
+  );
+}
+
+/* Bottom-right — deep navy blue */
+.glow-spot-navy {
+  background: radial-gradient(
+    ellipse at 100% 100%,
+    rgba(4, 25, 72, 0.55) 0%,
+    rgba(10, 10, 10, 0) 60%
+  );
+}
+
+/* Hot-pink sparkle glow — used around star / accent elements */
+.glow-spot-pink {
+  background: radial-gradient(
+    circle,
+    rgba(255, 27, 107, 0.18) 0%,
+    rgba(10, 10, 10, 0) 65%
+  );
+}
+
+/* Composite full-page ambient — apply to main wrapper */
+.bg-ambient {
+  background:
+    radial-gradient(ellipse at 0% 55%,    rgba(139, 0, 56, 0.42)  0%, transparent 55%),
+    radial-gradient(ellipse at 100% 0%,   rgba(0, 180, 180, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgba(4, 25, 72, 0.50)   0%, transparent 55%),
+    #0A0A0A;
+}
+
+/* ═══════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+═══════════════════════════════════════════ */
+
+/* Gold display headings — matches the champagne serif titles */
+.text-gold {
+  color: var(--text-heading);
+}
+
+/* Copper divider line — matches horizontal rule under section titles */
+.divider-copper {
+  border: none;
+  height: 1px;
+  background: var(--accent-copper);
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════
+   CARD / BORDER UTILITIES
+═══════════════════════════════════════════ */
+
+/* Thin pink-maroon border — matches skill/project card borders in PDF */
+.card-border {
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+}
+
+/* White ghost border — matches info/detail boxes */
+.card-border-white {
+  border: 1px solid var(--border-input);
+  border-radius: 2px;
+}
+
+/* ═══════════════════════════════════════════
+   PINK SPARKLE / ACCENT
+═══════════════════════════════════════════ */
+
+/* Hot-pink gradient — matches the diamond bullet icons */
+.accent-gradient {
+  background: linear-gradient(135deg, #FF1B6B 0%, #FF9060 100%);
+}
+
+/* Pink-to-magenta star sparkle colour */
+.text-pink {
+  color: var(--accent-pink);
 }
