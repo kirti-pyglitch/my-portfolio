@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import "../styles/animations.css";
+
+@theme {
+  --color-maroon: #7C2D12;
+  --color-maroon-dark: #5C1D0A;
+  --color-maroon-light: #993B1C;
+  --color-gold: #F59E0B;
+  --color-gold-dark: #D97706;
+  --color-gold-light: #FCD34D;
+  --color-bg-dark: #0F172A;
+  
+  --font-sans: var(--font-inter), sans-serif;
+  --font-serif: var(--font-outfit), sans-serif;
+  
+  --animate-float-slow: float-slow 25s infinite ease-in-out;
+  --animate-float-medium: float-medium 18s infinite ease-in-out;
+  --animate-float-fast: float-fast 10s infinite ease-in-out;
+  --animate-pulse-glow: pulse-glow 12s infinite ease-in-out;
+  --animate-bg-drift: drift 15s infinite ease-in-out;
+}
+
+:root {
+  --background: #0F172A;
+  --foreground: #F8FAFC;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7C2D12;
+  border-radius: 5px;
+  border: 2px solid #0F172A;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F59E0B;
+}
+
+/* Selection colors */
+::selection {
+  background: #7C2D12;
+  color: #FFFFFF;
+}
+
+/* Custom glows */
+.glow-spot-maroon {
+  background: radial-gradient(circle, rgba(124, 45, 18, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+}
+
+.glow-spot-gold {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+}
